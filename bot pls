@@ -1,0 +1,14 @@
+#!/usr/bin/env python3
+import requests
+import discord
+from discord import Webhook, RequestsWebhookAdapter, File
+ 
+# Create webhook
+webhook = Webhook.partial(WEBHOOK_ID, WEBHOOK_TOKEN,\
+ adapter=RequestsWebhookAdapter())
+ 
+# Send temperature as text
+webhook.send("Current Temp: " + CURRENT_TEMP)
+ 
+# Upload image to server
+webhook.send(file=discord.File("latest_img.jpg"))
